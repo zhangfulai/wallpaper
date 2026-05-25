@@ -13,7 +13,9 @@
       "Bash(xargs -I {} sh -c 'echo \"PID: {}\" && pwdx {} 2>/dev/null || echo \"no pwdx\"')",
       "Bash(curl -s -o /dev/null -w \"直接:%{http_code} 代理:%{http_code}\\\\n\" http://localhost:3000/uploads/1779701346204-266057922.gif http://localhost:5173/uploads/1779701346204-266057922.gif)",
       "Bash(curl -s -o /dev/null -w \"后端:%{http_code} 代理:%{http_code}\\\\n\" http://localhost:3000/api-json http://localhost:5173/uploads/1779701346204-266057922.gif)",
-      "Bash(curl -s -o /dev/null -w \"直接:%{http_code} 代理:%{http_code}\\\\n\" http://localhost:3000/uploads/1779701654700-619966011.gif http://localhost:5173/uploads/1779701654700-619966011.gif)"
+      "Bash(curl -s -o /dev/null -w \"直接:%{http_code} 代理:%{http_code}\\\\n\" http://localhost:3000/uploads/1779701654700-619966011.gif http://localhost:5173/uploads/1779701654700-619966011.gif)",
+      "Bash(npx nest *)",
+      "Bash(node -e \"const m = require\\('./dist/main.js'\\); console.log\\('compiled ok'\\)\")"
     ]
   }
 }

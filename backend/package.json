@@ -1,12 +1,12 @@
 {
   "name": "wallpaper-admin-backend",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "壁纸管理后台 - NestJS 后端",
   "author": "",
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "nest build",
+    "build": "rm -f tsconfig.tsbuildinfo && npx tsc",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
