@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted, computed } from 'vue'
+import { ref, reactive, onMounted, computed, h } from 'vue'
 import { message, Modal } from 'ant-design-vue'
 import {
   PlusOutlined,
@@ -130,6 +130,14 @@ const handleDelete = (record: Wallpaper) => {
 
 const handleSubmit = async () => {
   await formRef.value.validate()
+
+  // 新增模式必须上传图片
+  if (!form.id && !uploadFile.value) {
+    message.warning('请上传图片')
+    // 抛出错误阻止 Modal 关闭
+    throw new Error('请上传图片')
+  }
+
   submitLoading.value = true
   try {
     const formData = new FormData()
@@ -147,10 +155,6 @@ const handleSubmit = async () => {
       await patch(`/wallpapers/${form.id}`, formData)
       message.success('更新成功')
     } else {
-      if (!uploadFile.value) {
-        message.warning('请上传图片')
-        return
-      }
       await post('/wallpapers', formData)
       message.success('创建成功')
     }

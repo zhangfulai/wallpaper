@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w \"图片访问:%{http_code}\\\\n\" http://localhost:3000/uploads/1779700780784-913483639.gif)",
+      "Bash(curl -s -X POST http://localhost:5173/api/wallpapers -F title=前端代理测试 -F description=测试 -F categoryId=1 -F tags=[] -F status=ACTIVE -F file=@/tmp/test_img.gif)",
+      "Read(//tmp/**)",
+      "Bash(curl -s -X POST http://localhost:5173/api/wallpapers -H 'Authorization: Bearer __TRACKED_VAR__' -F title=前端代理测试 -F description=测试 -F categoryId=1 -F tags=[] -F status=ACTIVE -F file=@/tmp/test_img.gif)",
+      "Bash(curl -s http://localhost:5173/wallpapers)",
+      "Bash(curl -s -o /dev/null -w \"图片:%{http_code}\\\\n\" http://localhost:5173/uploads/1779700889342-97087823.gif)",
+      "Bash(curl -s -o /dev/null -w \"后端:%{http_code} 图片:%{http_code}\\\\n\" http://localhost:3000/api-json http://localhost:5173/uploads/1779700889342-97087823.gif)",
+      "Bash(curl -s -o /dev/null -w \"直接:%{http_code} \" http://localhost:3000/uploads/1779701346204-266057922.gif)",
+      "Bash(curl -s -o /dev/null -w \"代理:%{http_code}\\\\n\" http://localhost:5173/uploads/1779701346204-266057922.gif)",
+      "Bash(xargs -I {} sh -c 'echo \"PID: {}\" && pwdx {} 2>/dev/null || echo \"no pwdx\"')",
+      "Bash(curl -s -o /dev/null -w \"直接:%{http_code} 代理:%{http_code}\\\\n\" http://localhost:3000/uploads/1779701346204-266057922.gif http://localhost:5173/uploads/1779701346204-266057922.gif)",
+      "Bash(curl -s -o /dev/null -w \"后端:%{http_code} 代理:%{http_code}\\\\n\" http://localhost:3000/api-json http://localhost:5173/uploads/1779701346204-266057922.gif)",
+      "Bash(curl -s -o /dev/null -w \"直接:%{http_code} 代理:%{http_code}\\\\n\" http://localhost:3000/uploads/1779701654700-619966011.gif http://localhost:5173/uploads/1779701654700-619966011.gif)"
+    ]
+  }
+}
